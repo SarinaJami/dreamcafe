@@ -1,12 +1,12 @@
 import './App.css'
-import { Navbar } from './components'
+import { ScrollNavbar } from './components'
 import { Header, About, Menu, Gallery, Contact } from './containers'
 
 function App() {
   return (
     <div className='App'>
+      <ScrollNavbar />
       <div className='gradient-bg header-section'>
-        <Navbar />
         <Header />
       </div>
       <About />

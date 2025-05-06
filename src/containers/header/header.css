@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: space-between;
 
-  padding-top: 0;
+  padding-top: 8rem;
 }
 
 .cafe__header-content {
@@ -42,14 +42,13 @@
 
 @media screen and (max-width: 1305px) {
   .cafe__header {
-    padding-top: 4rem;
+    padding-top: 12rem;
   }
 }
 
 @media screen and (max-width: 1050px) {
   .cafe__header {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding: 12rem 3rem 0 3rem;
   }
 
   .cafe__header-content h1 {
