@@ -6,10 +6,10 @@
 }
 
 .cafe__contact-info {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   margin-top: 10rem;
@@ -76,20 +76,24 @@
 
 @media screen and (max-width: 850px) {
   .cafe__contact-info {
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 6rem 0;
+    padding-left: 4rem;
+  }
+
+  .cafe__contact-info_location {
+    margin-bottom: 3rem;
+  }
+
+  .cafe__contact-info {
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .cafe__contact {
     padding: 0;
-  }
-
-  .cafe__contact-info {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 6rem 0;
-    padding-left: 4rem;
   }
 
   .cafe__contact-info_location {
