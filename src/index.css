@@ -1,13 +1,14 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=Tagesschrift&family=Ysabeau+SC:wght@1..1000&display=swap");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --font-family: 'Tagesschrift', sans-serif;
+
+  --gradient-text: linear-gradient(90deg, #fbeed4e7 1%, #FFC078C7 100%);
+  --gradient-text-dark: linear-gradient(90deg, #653C0C 0%, #957947 100%);
+  --gradient-bar: linear-gradient(90deg, rgba(148, 114, 76, 0.856) 0%, rgba(101, 60, 12, 0.78) 100%);
+  --gradient-img: linear-gradient(90deg, #033B0AD4 0%, #46A43ED6 100%);
+
+  --color-bg: #ECCFA0;
+  --color-btn: #653C0C;
+  --color-bar: #653C0C;
 }

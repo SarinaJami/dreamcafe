@@ -1,0 +1,91 @@
+.cafe__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__cta-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+
+  margin-bottom: 2rem;
+}
+
+.cafe__cta-input {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: none;
+  outline: none;
+}
+
+.cafe__cta-input input {
+  flex: 2;
+  padding: 1rem 2rem;
+  text-align: left;
+  background: #fff7ebe5;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  border-radius: 10px 0 0 10px;
+  border: solid 1px var(--color-btn);
+}
+
+.cafe__cta-input input:focus {
+  outline-width: 0;
+}
+
+.cafe__cta-input button {
+  flex: 0.75;
+  padding: 1rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--color-btn);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  border-radius: 0 10px 10px 0;
+  border: solid 1px var(--color-btn);
+  color: #fdecd0;
+  transition: all 0.5s ease;
+}
+
+.cafe__cta-input button:active {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 850px) {
+  .cafe__cta-input {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cafe__cta-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .cafe__cta-input {
+    width: 400px;
+    height: 40px;
+  }
+
+  .cafe__cta-input input,
+  .cafe__cta-input button {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

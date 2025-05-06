@@ -1,0 +1,68 @@
+.cafe__about {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 1rem;
+}
+
+.cafe__about-content h1 {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 75px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: capitalize;
+
+  margin-bottom: 2rem;
+}
+
+.cafe__about-content p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.cafe__about-image {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__about-image img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+  .cafe__about {
+    padding: 4rem;
+  }
+
+  .cafe__about-content h1 {
+    font-size: 54px;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .cafe__about {
+    flex-direction: column;
+  }
+
+  .cafe__about-image {
+    margin: 3rem;
+  }
+}

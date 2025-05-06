@@ -1,0 +1,81 @@
+.cafe__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__contact-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 10rem;
+}
+
+.cafe__contact-info_location {
+  margin-right: 2rem;
+}
+
+.cafe__contact-info_location,
+.cafe__contact-info_hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cafe__contact-info_location h2,
+.cafe__contact-info_hours h2 {
+  font-family: var(--font-family);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.cafe__contact-info_location-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cafe__contact-info_location-container p {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 22px;
+
+  margin-left: 0.5rem;
+}
+
+.location_icon {
+  color: #000;
+}
+
+.cafe__contact-info_hours-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cafe__contact-info_hours-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cafe__contact-info_hours-container div p {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.cafe__contact-info_hours-container div p:first-child {
+  margin-right: 1.5rem;
+}
+
+@media screen and (max-width: 850px) {
+  .cafe__contact-info {
+    justify-content: space-between;
+  }
+}
