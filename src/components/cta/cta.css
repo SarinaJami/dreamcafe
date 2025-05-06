@@ -92,8 +92,8 @@
 
 @media screen and (max-width: 480px) {
   .cafe__cta-title {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 26px;
 
     padding: 0 2rem;
   }
@@ -107,5 +107,6 @@
   .cafe__cta-input button {
     font-size: 14px;
     line-height: 18px;
+    padding: 0.5rem 1rem;
   }
 }

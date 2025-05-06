@@ -85,3 +85,22 @@
     width: 50px;
   }
 }
+
+@media screen and (max-width: 480px) {
+
+  .cafe__menuitem-content p:first-child,
+  .cafe__menuitem-price p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .cafe__menuitem-content p:last-child {
+    font-size: 8px;
+    line-height: 12px;
+  }
+
+  .cafe__menuitem-price div {
+    width: 30px;
+    margin-right: 0.5rem;
+  }
+}

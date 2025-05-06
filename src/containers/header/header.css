@@ -81,5 +81,20 @@
   .cafe__header-content {
     margin-bottom: 2rem;
   }
+}
 
+@media screen and (max-width: 480px) {
+  .cafe__header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .cafe__header-content h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .cafe__header-image img {
+    width: 70%;
+  }
 }

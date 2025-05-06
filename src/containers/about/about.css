@@ -63,6 +63,23 @@
   }
 
   .cafe__about-image {
-    margin: 3rem;
+    margin: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cafe__about-content {
+    margin: 0;
+  }
+
+  .cafe__about-content h1 {
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 1rem;
+  }
+
+  .cafe__about-content p {
+    font-size: 12px;
+    line-height: 18px;
   }
 }
