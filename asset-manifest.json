@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dreamcafe/static/css/main.27584532.css",
+    "main.js": "/dreamcafe/static/js/main.8aea9470.js",
+    "static/js/453.301385c6.chunk.js": "/dreamcafe/static/js/453.301385c6.chunk.js",
+    "static/media/cafe.png": "/dreamcafe/static/media/cafe.f1d6b8466a5c9cdbd5aa.png",
+    "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.577d7b39ae46a33d37e7.png",
+    "static/media/header.png": "/dreamcafe/static/media/header.f5d33e724d6b044357bf.png",
+    "static/media/gallery03.png": "/dreamcafe/static/media/gallery03.1c665e2afeb2cb3dbbfe.png",
+    "static/media/about.png": "/dreamcafe/static/media/about.1734456c9a25b64bd6c6.png",
+    "static/media/gallery01.png": "/dreamcafe/static/media/gallery01.5b3113f10532332a34b2.png",
+    "static/media/logo.png": "/dreamcafe/static/media/logo.fa99d24aaa02721db13f.png",
+    "static/media/gallery04.png": "/dreamcafe/static/media/gallery04.bca121630aa5240ccd5e.png",
+    "index.html": "/dreamcafe/index.html",
+    "main.27584532.css.map": "/dreamcafe/static/css/main.27584532.css.map",
+    "main.8aea9470.js.map": "/dreamcafe/static/js/main.8aea9470.js.map",
+    "453.301385c6.chunk.js.map": "/dreamcafe/static/js/453.301385c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27584532.css",
+    "static/js/main.8aea9470.js"
+  ]
+}
