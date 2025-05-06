@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './gallery.css'
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import gallery01 from '../../assets/gallery01.png'

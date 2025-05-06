@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import './about.css'
 import about from '../../assets/about.png'
-import { IoHandLeft } from 'react-icons/io5';
+
 
 function About() {
   return (

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import './menu.css'
 import cafe from '../../assets/cafe.png'
 import { MenuItem } from '../../components'

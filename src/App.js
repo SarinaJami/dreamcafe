@@ -1,5 +1,5 @@
 import './App.css'
-import { Navbar, Cta } from './components'
+import { Navbar } from './components'
 import { Header, About, Menu, Gallery, Contact } from './containers'
 
 function App() {
