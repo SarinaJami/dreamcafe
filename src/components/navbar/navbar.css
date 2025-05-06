@@ -4,6 +4,7 @@
   align-items: center;
 
   padding: 2rem 4rem;
+  z-index: 1000;
 }
 
 .cafe__navbar-links {

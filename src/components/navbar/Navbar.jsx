@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './navbar.css'
 import logo from '../../assets/logo.png'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
@@ -13,13 +13,30 @@ const NavbarLinks = () => (
   </>
 )
 
+
+function useOutsideAlerter(ref, setToggleMenu) {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setToggleMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, setToggleMenu]);
+}
+
+
+
 const ScrollNavbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  // State variables to manage scroll behavior
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, setToggleMenu);
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [top, setTop] = useState(0);
   useEffect(() => {
-    // Function to handle scroll events
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
@@ -29,9 +46,7 @@ const ScrollNavbar = () => {
       }
       setPrevScrollpos(currentScrollPos);
     };
-    // Add scroll event listener when the component mounts
     window.addEventListener('scroll', handleScroll);
-    // Clean up by removing the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -65,7 +80,7 @@ const ScrollNavbar = () => {
           : <RiMenu3Line color='#000' size={27} onClick={() => setToggleMenu(true)} />
         }
         {toggleMenu && (
-          <div className="cafe__navbar-navbarlinks_container scale-up-center">
+          <div className="cafe__navbar-navbarlinks_container scale-up-center" ref={wrapperRef}>
             <div className="cafe__navbar-navbarlinks_container-links">
               <NavbarLinks />
               <div className="cafe__navbar-navbarlinks_container-sign">
