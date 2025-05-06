@@ -89,3 +89,23 @@
     line-height: 20px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .cafe__cta-title {
+    font-size: 22px;
+    line-height: 28px;
+
+    padding: 0 2rem;
+  }
+
+  .cafe__cta-input {
+    width: 100px;
+    height: 20px;
+  }
+
+  .cafe__cta-input input,
+  .cafe__cta-input button {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
