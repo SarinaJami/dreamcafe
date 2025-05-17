@@ -9,7 +9,7 @@ function Menu() {
   const rotateRef = useRef(null);
 
   return (
-    <div className="cafe__menu section-padding" id="menu">
+    <section className="cafe__menu section-padding" id="menu">
       <div className="cafe__menu-content">
         <div className="cafe__menu-content_heading" ref={rotateRef} onMouseOverCapture={() => {
           rotateRef.current.classList.add("rotate-center");
@@ -31,7 +31,7 @@ function Menu() {
       <div className="cafe__menu-image">
         <img src={cafe} alt='cafe' />
       </div>
-    </div>
+    </section>
   )
 }
 

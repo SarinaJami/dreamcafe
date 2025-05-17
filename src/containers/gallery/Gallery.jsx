@@ -23,7 +23,7 @@ function Gallery() {
   };
 
   return (
-    <div className="cafe__gallery" id="gallery">
+    <section className="cafe__gallery" id="gallery">
       <div className="cafe__gallery-content">
         <h1>Photo Gallery</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum molestie rhoncus. Morbi elementum, lectus vel egestas convallis.</p>
@@ -45,7 +45,7 @@ function Gallery() {
           <BsArrowRightShort className="gallery__arrow-icon" onClick={() => scroll('right')} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

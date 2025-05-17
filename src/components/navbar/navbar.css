@@ -26,42 +26,47 @@
   height: 54.98px;
 }
 
-.cafe__navbar-links_container {
+.cafe__navbar-links_container ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.cafe__navbar-links_container p,
+.cafe__navbar-links_container ul li {
+  display: inline-block;
+}
+
+.cafe__navbar-links_container ul li,
 .cafe__navbar-sign p,
 .cafe__navbar-navbarlinks_container-sign p,
-.cafe__navbar-navbarlinks_container p {
+.cafe__navbar-navbarlinks_container ul li {
   color: #000;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
   text-transform: capitalize;
+  list-style: none;
 
   margin: 0 1rem;
   cursor: pointer;
 }
 
-.cafe__navbar-links_container p:hover,
+.cafe__navbar-links_container ul li:hover,
 .cafe__navbar-sign p:hover,
 .cafe__navbar-navbarlinks_container-sign p:hover,
-.cafe__navbar-navbarlinks_container p:hover {
+.cafe__navbar-navbarlinks_container ul li:hover {
   font-weight: 600;
 }
 
-.cafe__navbar-links_container a,
-.cafe__navbar-navbarlinks_container a {
+.cafe__navbar-links_container ul li a,
+.cafe__navbar-navbarlinks_container ul li a {
   position: relative;
 }
 
-.cafe__navbar-links_container a::after,
-.cafe__navbar-navbarlinks_container a::after {
+.cafe__navbar-links_container ul li a::after,
+.cafe__navbar-navbarlinks_container ul li a::after {
   content: '';
   position: absolute;
   height: 2px;
@@ -74,8 +79,13 @@
   pointer-events: none;
 }
 
-.cafe__navbar-links_container a:hover::after,
-.cafe__navbar-navbarlinks_container a:hover::after {
+.cafe__navbar-links_container ul li a:hover::after,
+.cafe__navbar-navbarlinks_container ul li a:hover::after {
+  transform: scale(1);
+}
+
+.cafe__navbar-links_container ul li.active a::after,
+.cafe__navbar-navbarlinks_container ul li.active a::after {
   transform: scale(1);
 }
 
@@ -153,6 +163,7 @@
   box-shadow: 0 0 5px 5px rgba(236, 207, 160, 0.2);
 }
 
+.cafe__navbar-navbarlinks_container ul li,
 .cafe__navbar-navbarlinks_container p {
   color: var(--color-bg);
   margin: 1rem 0;
@@ -180,8 +191,8 @@
     margin-left: 0;
   }
 
-  .cafe__navbar-links_container a::after,
-  .cafe__navbar-navbarlinks_container a::after {
+  .cafe__navbar-links_container ul li a::after,
+  .cafe__navbar-navbarlinks_container ul li a::after {
     background: var(--gradient-text);
   }
 }

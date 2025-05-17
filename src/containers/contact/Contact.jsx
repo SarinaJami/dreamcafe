@@ -5,7 +5,7 @@ import { Cta } from '../../components'
 
 function Contact() {
   return (
-    <div className="cafe__contact section-padding" id="contact">
+    <section className="cafe__contact section-padding" id="contact">
       <div className="cafe__contact-cta">
         <Cta
           title="stories about coffee beans around the world!"
@@ -35,7 +35,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

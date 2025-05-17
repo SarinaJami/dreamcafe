@@ -4,13 +4,17 @@ import logo from '../../assets/logo.png'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
 
 const NavbarLinks = () => (
-  <>
-    <p><a href='#home'>Home</a></p>
-    <p><a href='#about'>About</a></p>
-    <p><a href='#menu'>Menu</a></p>
-    <p><a href='#gallery'>Gallery</a></p>
-    <p><a href='#contact'>Contact</a></p>
-  </>
+  <nav>
+    <div>
+      <ul>
+        <li className='home'><a href='#home'>Home</a></li>
+        <li className='about'><a href='#about'>About</a></li>
+        <li className='menu'><a href='#menu'>Menu</a></li>
+        <li className='gallery'><a href='#gallery'>Gallery</a></li>
+        <li className='contact'><a href='#contact'>Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 )
 
 
@@ -36,6 +40,11 @@ const ScrollNavbar = () => {
   useOutsideAlerter(wrapperRef, setToggleMenu);
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
   const [top, setTop] = useState(0);
+
+  const sections = document.querySelectorAll('section');
+  const navLi = document.querySelectorAll('nav ul li');
+  const [currentSection, setCurrentSection] = useState('');
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -51,6 +60,30 @@ const ScrollNavbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollpos]);
+
+  useEffect(() => {
+    const handleActive = () => {
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        if (window.pageYOffset >= (sectionTop - sectionHeight / 2)) {
+          setCurrentSection(section.getAttribute('id'));
+        }
+      })
+
+      navLi.forEach(li => {
+        li.classList.remove('active');
+        if (li.classList.contains(currentSection)) {
+          li.classList.add('active');
+        }
+      })
+    };
+    window.addEventListener('scroll', handleActive);
+    return () => {
+      window.removeEventListener('scroll', handleActive);
+    };
+  }, [currentSection, sections, navLi]);
 
   const navbarStyle = {
     position: 'fixed',
