@@ -80,8 +80,10 @@
   .cafe__contact-info {
     flex-direction: column;
     align-items: flex-start;
-    margin: 6rem 0;
+    /* margin: 6rem 0; */
+    margin-bottom: 0;
     padding-left: 4rem;
+    padding-bottom: 4rem;
   }
 
   .cafe__contact-info_location {
