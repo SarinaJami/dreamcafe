@@ -17,8 +17,7 @@ const NavbarLinks = () => (
   </nav>
 )
 
-
-function useOutsideAlerter(ref, setToggleMenu) {
+function useOutsideMouseClick(ref, setToggleMenu) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -32,42 +31,73 @@ function useOutsideAlerter(ref, setToggleMenu) {
   }, [ref, setToggleMenu]);
 }
 
-
-
 const ScrollNavbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const smallScreenSize = 1060;
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, setToggleMenu);
-  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
-  const [top, setTop] = useState(0);
-
-  const sections = document.querySelectorAll('section');
-  const navLi = document.querySelectorAll('nav ul li');
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const navbarRef = useRef(null);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+  const [atTop, setAtTop] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
   const [currentSection, setCurrentSection] = useState('');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        setTop(0); // Show navbar
-      } else {
-        setTop(-100); // Hide navbar
-      }
-      setPrevScrollpos(currentScrollPos);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollpos]);
+  useOutsideMouseClick(wrapperRef, setToggleMenu);
 
   useEffect(() => {
+    if (navbarRef.current) {
+      setNavbarHeight(navbarRef.current.clientHeight);
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleNavbarPosition = () => {
+      const scrolled = window.scrollY > navbarHeight;
+      setAtTop(!scrolled);
+      setIsHidden(scrolled);
+
+      if (window.innerWidth <= smallScreenSize) {
+        if (window.scrollY > navbarHeight) {
+          toggleMenu ? setIsHidden(false) : setIsHidden(true);
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleNavbarPosition);
+    return () => {
+      window.removeEventListener('scroll', handleNavbarPosition);
+    }
+  }, [navbarHeight, toggleMenu]);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if ((window.innerWidth <= smallScreenSize) && toggleMenu) {
+        setIsHidden(false);
+      }
+      else {
+        if (event.clientY <= navbarHeight && !atTop) {
+          setIsHidden(false);
+        }
+        else if (!atTop) {
+          setIsHidden(true);
+        }
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, [navbarHeight, atTop, toggleMenu])
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    const navLi = document.querySelectorAll('nav ul li');
     const handleActive = () => {
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
 
-        if (window.pageYOffset >= (sectionTop - sectionHeight / 2)) {
+        if (window.pageYOffset >= (sectionTop - sectionHeight / 5)) {
           setCurrentSection(section.getAttribute('id'));
         }
       })
@@ -83,17 +113,10 @@ const ScrollNavbar = () => {
     return () => {
       window.removeEventListener('scroll', handleActive);
     };
-  }, [currentSection, sections, navLi]);
-
-  const navbarStyle = {
-    position: 'fixed',
-    top: `${top}px`,
-    width: '100%',
-    transition: 'top 0.3s',
-  }
+  }, [currentSection]);
 
   return (
-    <div className="cafe__navbar" style={navbarStyle}>
+    <div className={`cafe__navbar ${isHidden ? "cafe__navbar__hidden" : ""}`} ref={navbarRef}>
       <div className="cafe__navbar-links">
         <div className="cafe__navbar-links_logo">
           <img src={logo} alt='logo' />

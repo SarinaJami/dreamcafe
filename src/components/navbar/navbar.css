@@ -3,8 +3,19 @@
   justify-content: space-between;
   align-items: center;
 
+  position: fixed;
+  top: 0px;
+  width: 100%;
+
   padding: 2rem 4rem;
+  padding-bottom: 6rem;
+
+  transition: top 0.3s ease-in-out;
   z-index: 1000;
+}
+
+.cafe__navbar__hidden {
+  top: -100px;
 }
 
 .cafe__navbar-links {
