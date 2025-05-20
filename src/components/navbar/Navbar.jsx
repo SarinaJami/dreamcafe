@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import './navbar.css'
 import logo from '../../assets/logo.png'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
@@ -17,18 +17,18 @@ const NavbarLinks = () => (
   </nav>
 )
 
-function useOutsideMouseClick(ref, setToggleMenu) {
+function useOutsideMouseClick(ref, onOutsideClick) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        setToggleMenu(false);
+        onOutsideClick();
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref, setToggleMenu]);
+  }, [ref, onOutsideClick]);
 }
 
 const ScrollNavbar = () => {
@@ -40,8 +40,10 @@ const ScrollNavbar = () => {
   const [atTop, setAtTop] = useState(true);
   const [isHidden, setIsHidden] = useState(false);
   const [currentSection, setCurrentSection] = useState('');
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
 
-  useOutsideMouseClick(wrapperRef, setToggleMenu);
+  const handleClose = useCallback(() => setToggleMenu(false), []);
+  useOutsideMouseClick(wrapperRef, handleClose);
 
   useEffect(() => {
     if (navbarRef.current) {
@@ -55,11 +57,11 @@ const ScrollNavbar = () => {
       setAtTop(!scrolled);
       setIsHidden(scrolled);
 
-      if (window.innerWidth <= smallScreenSize) {
-        if (window.scrollY > navbarHeight) {
-          toggleMenu ? setIsHidden(false) : setIsHidden(true);
-        }
-      }
+      // if (window.innerWidth <= smallScreenSize) {
+      //   if (window.scrollY > navbarHeight) {
+      //     toggleMenu ? setIsHidden(false) : setIsHidden(true);
+      //   }
+      // }
     }
 
     window.addEventListener('scroll', handleNavbarPosition);
@@ -70,10 +72,7 @@ const ScrollNavbar = () => {
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      if ((window.innerWidth <= smallScreenSize) && toggleMenu) {
-        setIsHidden(false);
-      }
-      else {
+      if (window.innerWidth > smallScreenSize) {
         if (event.clientY <= navbarHeight && !atTop) {
           setIsHidden(false);
         }
@@ -82,12 +81,38 @@ const ScrollNavbar = () => {
         }
       }
     }
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     }
-  }, [navbarHeight, atTop, toggleMenu])
+  }, [navbarHeight, atTop])
+
+  useEffect(() => {
+    const handleScrollForSmallScreen = () => {
+      if (window.innerWidth <= smallScreenSize) {
+        setPrevScrollPosition(window.pageYOffset);
+        if (window.scrollY > navbarHeight) {
+          if (toggleMenu) {
+            setIsHidden(false)
+          }
+          else {
+            if (window.scrollY > prevScrollPosition) {
+              setIsHidden(true);
+            }
+            else {
+              setIsHidden(false);
+            }
+          }
+        }
+        setPrevScrollPosition(window.scrollY);
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollForSmallScreen);
+    return () => {
+      window.removeEventListener('scroll', handleScrollForSmallScreen);
+    }
+  }, [smallScreenSize, toggleMenu, navbarHeight, prevScrollPosition])
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
