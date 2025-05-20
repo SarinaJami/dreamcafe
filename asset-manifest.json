@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/dreamcafe/static/css/main.2b9f8f1a.css",
-    "main.js": "/dreamcafe/static/js/main.9aeb80c3.js",
+    "main.js": "/dreamcafe/static/js/main.454c1e58.js",
     "static/js/453.301385c6.chunk.js": "/dreamcafe/static/js/453.301385c6.chunk.js",
-    "static/media/cafe.png": "/dreamcafe/static/media/cafe.f1d6b8466a5c9cdbd5aa.png",
-    "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.577d7b39ae46a33d37e7.png",
-    "static/media/header.png": "/dreamcafe/static/media/header.f5d33e724d6b044357bf.png",
-    "static/media/gallery03.png": "/dreamcafe/static/media/gallery03.1c665e2afeb2cb3dbbfe.png",
-    "static/media/about.png": "/dreamcafe/static/media/about.1734456c9a25b64bd6c6.png",
-    "static/media/gallery01.png": "/dreamcafe/static/media/gallery01.5b3113f10532332a34b2.png",
-    "static/media/logo.png": "/dreamcafe/static/media/logo.fa99d24aaa02721db13f.png",
-    "static/media/gallery04.png": "/dreamcafe/static/media/gallery04.bca121630aa5240ccd5e.png",
+    "static/media/cafe.png": "/dreamcafe/static/media/cafe.59885281a615002170ce.png",
+    "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.c2da37fbf20e38a6e19b.png",
+    "static/media/header.png": "/dreamcafe/static/media/header.e9a6001c950d44150b0f.png",
+    "static/media/gallery03.png": "/dreamcafe/static/media/gallery03.c65addd0312097d95cb0.png",
+    "static/media/about.png": "/dreamcafe/static/media/about.9b40660b360c633291a8.png",
+    "static/media/gallery01.png": "/dreamcafe/static/media/gallery01.fb9b81360385ea584464.png",
+    "static/media/logo.png": "/dreamcafe/static/media/logo.8fbbe64d7baaea885b77.png",
+    "static/media/gallery04.png": "/dreamcafe/static/media/gallery04.737a82403ffdb8d8a5eb.png",
     "index.html": "/dreamcafe/index.html",
     "main.2b9f8f1a.css.map": "/dreamcafe/static/css/main.2b9f8f1a.css.map",
-    "main.9aeb80c3.js.map": "/dreamcafe/static/js/main.9aeb80c3.js.map",
+    "main.454c1e58.js.map": "/dreamcafe/static/js/main.454c1e58.js.map",
     "453.301385c6.chunk.js.map": "/dreamcafe/static/js/453.301385c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2b9f8f1a.css",
-    "static/js/main.9aeb80c3.js"
+    "static/js/main.454c1e58.js"
   ]
 }
