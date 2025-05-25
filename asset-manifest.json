@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/dreamcafe/static/css/main.2b9f8f1a.css",
-    "main.js": "/dreamcafe/static/js/main.454c1e58.js",
+    "main.css": "/dreamcafe/static/css/main.8072bee7.css",
+    "main.js": "/dreamcafe/static/js/main.a7bca316.js",
     "static/js/453.301385c6.chunk.js": "/dreamcafe/static/js/453.301385c6.chunk.js",
-    "static/media/cafe.png": "/dreamcafe/static/media/cafe.59885281a615002170ce.png",
-    "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.c2da37fbf20e38a6e19b.png",
-    "static/media/header.png": "/dreamcafe/static/media/header.e9a6001c950d44150b0f.png",
-    "static/media/gallery03.png": "/dreamcafe/static/media/gallery03.c65addd0312097d95cb0.png",
-    "static/media/about.png": "/dreamcafe/static/media/about.9b40660b360c633291a8.png",
-    "static/media/gallery01.png": "/dreamcafe/static/media/gallery01.fb9b81360385ea584464.png",
-    "static/media/logo.png": "/dreamcafe/static/media/logo.8fbbe64d7baaea885b77.png",
+    "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.9a11e6107bec7e0e0f18.png",
     "static/media/gallery04.png": "/dreamcafe/static/media/gallery04.737a82403ffdb8d8a5eb.png",
+    "static/media/header.png": "/dreamcafe/static/media/header.d95e78a3ba8d99393419.png",
+    "static/media/gallery03.png": "/dreamcafe/static/media/gallery03.2aad0ac9c65c4a812618.png",
+    "static/media/about.png": "/dreamcafe/static/media/about.be1afdd1c73775d261f8.png",
+    "static/media/gallery01.png": "/dreamcafe/static/media/gallery01.4852b2afaa0093dfb530.png",
+    "static/media/cafe.png": "/dreamcafe/static/media/cafe.11b53c97ae574a9c4d3c.png",
+    "static/media/mocha.png": "/dreamcafe/static/media/mocha.87bfdfabc856f7920d69.png",
+    "static/media/cappuccino.png": "/dreamcafe/static/media/cappuccino.df55124bb1adae92e97b.png",
+    "static/media/irish.png": "/dreamcafe/static/media/irish.1a75389810b79398dd64.png",
+    "static/media/logo.png": "/dreamcafe/static/media/logo.13a2519351f93b047512.png",
+    "static/media/macchiato.png": "/dreamcafe/static/media/macchiato.b51569dbbf739efdc1e0.png",
+    "static/media/americano.png": "/dreamcafe/static/media/americano.4d26ab3005db96a632b2.png",
+    "static/media/latte.png": "/dreamcafe/static/media/latte.e33a7821413e537d387e.png",
     "index.html": "/dreamcafe/index.html",
-    "main.2b9f8f1a.css.map": "/dreamcafe/static/css/main.2b9f8f1a.css.map",
-    "main.454c1e58.js.map": "/dreamcafe/static/js/main.454c1e58.js.map",
+    "main.8072bee7.css.map": "/dreamcafe/static/css/main.8072bee7.css.map",
+    "main.a7bca316.js.map": "/dreamcafe/static/js/main.a7bca316.js.map",
     "453.301385c6.chunk.js.map": "/dreamcafe/static/js/453.301385c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b9f8f1a.css",
-    "static/js/main.454c1e58.js"
+    "static/css/main.8072bee7.css",
+    "static/js/main.a7bca316.js"
   ]
 }
