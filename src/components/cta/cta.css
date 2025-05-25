@@ -5,11 +5,22 @@
   align-items: center;
 }
 
-.cafe__cta-title {
+.cafe__cta-title p:first-child {
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+
+  margin-bottom: 0.5rem;
+}
+
+.cafe__cta-title p:last-child {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 32px;
   text-align: center;
   text-transform: capitalize;
 
@@ -73,9 +84,14 @@
 }
 
 @media screen and (max-width: 650px) {
-  .cafe__cta-title {
+  .cafe__cta-title p:first-child {
     font-size: 32px;
     line-height: 38px;
+  }
+
+  .cafe__cta-title p:last-child {
+    font-size: 20px;
+    line-height: 26px;
   }
 
   .cafe__cta-input {
@@ -91,9 +107,16 @@
 }
 
 @media screen and (max-width: 480px) {
-  .cafe__cta-title {
+  .cafe__cta-title p:first-child {
     font-size: 20px;
     line-height: 26px;
+
+    padding: 0 2rem;
+  }
+
+  .cafe__cta-title p:last-child {
+    font-size: 14px;
+    line-height: 20px;
 
     padding: 0 2rem;
   }

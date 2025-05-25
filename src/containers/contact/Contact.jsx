@@ -9,6 +9,7 @@ function Contact() {
       <div className="cafe__contact-cta">
         <Cta
           title="stories about coffee beans around the world!"
+          text="and stay informed with events in dream cafe!"
           placeholder="Your Email Address"
           buttonText="Subscribe"
         />

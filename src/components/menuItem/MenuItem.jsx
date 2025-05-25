@@ -10,7 +10,7 @@ function MenuItem({ title, ingredients, price }) {
       </div>
       <div className="cafe__menuitem-price">
         <div></div>
-        <p>${price}</p>
+        <p>${price.toFixed(1)}</p>
       </div>
     </div>
   )

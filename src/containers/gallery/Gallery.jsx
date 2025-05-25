@@ -1,10 +1,7 @@
 import React from 'react'
 import './gallery.css'
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
-import gallery01 from '../../assets/gallery01.png'
-import gallery02 from '../../assets/gallery02.png'
-import gallery03 from '../../assets/gallery03.png'
-import gallery04 from '../../assets/gallery04.png'
+import { gallery01, gallery02, gallery03, gallery04 } from '../../assets/images';
 
 const images = [gallery01, gallery02, gallery03, gallery04];
 const imageNote = ["Coffee and Books", "Baking.. To Serve with Coffee", "Morning Coffee Perfume", "Socializing with Coffee"];
