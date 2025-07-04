@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useReducer, useRef } from 'react'
 import './menu.css'
 import cafe from '../../assets/cafe.png'
 import { MenuItem } from '../../components'
@@ -7,16 +7,56 @@ import { MenuItem } from '../../components'
 
 function Menu() {
   const rotateRef = useRef(null);
+  const lastScrollY = useRef(0)
+  const scrollDirection = useRef(null)
+
+  const handleRotate = () => {
+    if (rotateRef.current) {
+      rotateRef.current.classList.add("rotate-center");
+      setTimeout(() => {
+        rotateRef.current.classList.remove("rotate-center");
+      }, 700);
+    }
+  }
+
+  const updateScrollDirection = () => {
+    const currentScrollY = window.scrollY
+    if (lastScrollY.current < currentScrollY) {
+      scrollDirection.current = 'down'
+    }
+    else if (lastScrollY.current > currentScrollY) {
+      scrollDirection.current = 'up'
+    }
+    lastScrollY.current = currentScrollY
+  }
+
+  useEffect(() => {
+    const menuSection = document.querySelector('#menuContent')
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (scrollDirection.current === 'down') {
+            handleRotate()
+          }
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    )
+
+    if (menuSection) observer.observe(menuSection)
+    window.addEventListener('scroll', updateScrollDirection)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', updateScrollDirection)
+    }
+  }, [])
 
   return (
     <section className="cafe__menu section-padding" id="menu">
-      <div className="cafe__menu-content">
-        <div className="cafe__menu-content_heading" ref={rotateRef} onMouseOverCapture={() => {
-          rotateRef.current.classList.add("rotate-center");
-          setTimeout(() => {
-            rotateRef.current.classList.remove("rotate-center");
-          }, 700);
-        }}>
+      <div className="cafe__menu-content" id="menuContent">
+        <div className="cafe__menu-content_heading" ref={rotateRef}>
           <h1 className="gradient-text-dark">Drops of <span>Brown</span> Love</h1>
         </div>
         <div className="cafe__menu-content_items">

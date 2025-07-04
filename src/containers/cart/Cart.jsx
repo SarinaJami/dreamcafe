@@ -1,100 +1,44 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { OrderItem, OrderNotif } from '../../components';
-import './cart.css';
-import { item01, item02, item03, item04, item05, item06 } from '../../assets/images';
-const itemImages = [item01, item02, item03, item04, item05, item06];
-const itemName = ['Latte', 'Americano', 'Mocha', 'Cappuccino', 'Caramel Macchiato', 'Irish Coffee'];
-const prices = [6.8, 5, 6.8, 6.5, 5.6, 7.5];
+import React, { useEffect, useState } from 'react'
+import './cart.css'
 
-function useOutsideMouseClick(refs, onOutsideClick) {
-  useEffect(() => {
-    function handleClickOutside(event) {
-      const clickedInsideAnyRef = refs.some(
-        (ref) => ref.current && (ref.current.contains(event.target) || event.target.closest('[data-inside-navbar]'))
-      );
-      if (!clickedInsideAnyRef) {
-        onOutsideClick();
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [refs, onOutsideClick]);
-}
 
-function Cart({ orderCount, setOrderCount, onClose, navbarRef }) {
-  const cartRef = useRef(null)
-  const notifRef = useRef(null)
-  const menuItems = itemName.map((name, index) => ({
-    id: index,
-    name: name,
-    image: itemImages[index],
-    price: prices[index],
-  }))
-  const [showNotif, setShowNotif] = useState(false)
-  useOutsideMouseClick([cartRef, navbarRef], () => {
-    if (!showNotif) onClose()
-  })
-  useOutsideMouseClick([notifRef, navbarRef], () => setShowNotif(false))
-
-  const handleAdd = (id) => {
-    setOrderCount((prev) => ({
-      ...prev,
-      [id]: Math.min((prev[id] || 0) + 1, 20)
-    }))
+function Cart({ menuItems, orderCount, setOrderCount }) {
+  const [paymentMessage, setPaymentMessage] = useState('Payment');
+  const handlePayment = (setOrderCount) => {
+    setOrderCount((prev) =>
+      Object.keys(prev).reduce((acc, key) => {
+        acc[key] = 0;
+        return acc;
+      }, {})
+    );
+    setPaymentMessage('Paid!');
+    setTimeout(() => {
+      setPaymentMessage('Payment')
+    }, 3000);
   }
-
-  const handleRemove = (id) => {
-    setOrderCount((prev) => ({
-      ...prev,
-      [id]: Math.max((prev[id] || 0) - 1, 0)
-    }))
-  }
-
-  const total = menuItems.reduce((sum, item) => {
-    return sum + (orderCount[item.id] || 0) * item.price
-  }, 0)
-
+  const ordersIds = Object.entries(orderCount).filter(([_, value]) => {
+    return value > 0
+  }).map(([id]) => id);
 
   return (
     <div className="cafe__cart pop-up">
-      <div className="cafe__cart-scrollable" ref={cartRef}>
-        <div className="cafe__cart-items">
-          <h2>order online</h2>
-          {menuItems.map((item) => (
-            <div className="cafe__cart-item" key={item.id}>
-              <OrderItem
-                id={item.id}
-                itemImg={item.image}
-                title={item.name}
-                price={item.price}
-                orderCount={orderCount[item.id] || 0}
-                onAdd={() => handleAdd(item.id)}
-                onRemove={() => handleRemove(item.id)}
-              />
+      <div className="cafe__cart-orders">
+        {
+          menuItems.map((item) => (
+            <div className="cafe__cart-order">
+              <p>{ordersIds.includes(item.id) ? item.name : ""}</p>
             </div>
-          ))}
+          ))
+        }
+      </div>
+      <div className="cafe__cart-buttons">
+        <div>
+          <button onClick={() => handlePayment(setOrderCount)}><span className="payment-message gradient-text">{paymentMessage}</span></button>
         </div>
-        <div className="cafe__cart-finalized">
-          <div className="cafe__cart-finalized_total">
-            <p>Total Cost: <span className='total_cost'>${total.toFixed(2)}</span></p>
-          </div>
-          <div className="cafe__cart-finalized_bill">
-            <button onClick={() => setShowNotif(true)}><span className="gradient-text">Add to Cart</span></button>
-          </div>
+        <div>
+          <button><span className="gradient-text">Edit Order</span></button>
         </div>
       </div>
-      {showNotif && (
-        <div className="cafe__cart-notif_overlay">
-          <OrderNotif
-            message="Done!"
-            buttonMessage="Go to Cart"
-            buttonOnClick={() => { console.log('button clicked!') }}
-            notifRef={notifRef}
-          />
-        </div>
-      )}
     </div>
   )
 }

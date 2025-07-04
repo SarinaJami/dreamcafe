@@ -31,6 +31,8 @@
 .cafe__contact-info_location h2,
 .cafe__contact-info_hours h2 {
   font-family: var(--font-family);
+  font-size: 28px;
+  line-height: 36px;
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -43,8 +45,8 @@
 
 .cafe__contact-info_location-container p {
   font-family: var(--font-family);
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 24px;
 
   margin-left: 0.5rem;
 }
@@ -68,19 +70,29 @@
 
 .cafe__contact-info_hours-container div p {
   font-family: var(--font-family);
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .cafe__contact-info_hours-container div p:first-child {
   margin-right: 1.5rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .cafe__contact {
+    padding: 4rem 1rem;
+  }
+
+  .cafe__contact-cta {
+    padding-right: 4rem;
+    padding-left: 4rem;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .cafe__contact-info {
     flex-direction: column;
     align-items: flex-start;
-    /* margin: 6rem 0; */
     margin-bottom: 0;
     padding-left: 4rem;
     padding-bottom: 4rem;
@@ -95,6 +107,17 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  .cafe__contact {
+    padding: 4rem 2rem;
+  }
+
+  .cafe__contact-cta {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .cafe__contact {
     padding: 0;
@@ -106,13 +129,13 @@
 
   .cafe__contact-info_location h2,
   .cafe__contact-info_hours h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 0.4rem;
   }
 
   .cafe__contact-info_location-container p,
   .cafe__contact-info_hours-container div p {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

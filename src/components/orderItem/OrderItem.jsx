@@ -3,7 +3,6 @@ import './orderItem.css'
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5"
 
 function useOrderLogic({ onAdd, onRemove }) {
-  // const [orderCount, setOrderCount] = useState(0);
   const [addCircleSize, setAddCircleSize] = useState('20');
   const [removeCircleSize, setRemoveCircleSize] = useState('20');
 
@@ -44,7 +43,7 @@ function OrderItem({ itemImg, title, price, orderCount, onAdd, onRemove }) {
         </div>
         <div className="cafe__orderItem-item_content">
           <p>{title}</p>
-          <p>${price.toFixed(1)}</p>
+          <p>${price}</p>
         </div>
       </div>
       <div className="cafe__orderItem-count">

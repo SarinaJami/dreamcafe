@@ -8,7 +8,8 @@
   --gradient-bar: linear-gradient(90deg, rgba(148, 114, 76, 0.856) 0%, rgba(101, 60, 12, 0.78) 100%);
   --gradient-img: linear-gradient(90deg, #033B0AD4 0%, #46A43ED6 100%);
 
-  --color-bg: #ECCFA0;
+  --color-bg: rgba(236, 207, 160, 1);
   --color-btn: #653C0C;
+  /* --color-b: #653b0ca1; */
   --color-bar: #653b0c;
 }

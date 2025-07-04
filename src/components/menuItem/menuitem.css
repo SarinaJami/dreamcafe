@@ -13,7 +13,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  margin-right: 2rem;
+  margin-right: 3rem;
 }
 
 .cafe__menuitem-content p:first-child {
@@ -90,13 +90,13 @@
 
   .cafe__menuitem-content p:first-child,
   .cafe__menuitem-price p {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .cafe__menuitem-content p:last-child {
-    font-size: 8px;
-    line-height: 12px;
+    font-size: 12px;
+    line-height: 20px;
   }
 
   .cafe__menuitem-price div {

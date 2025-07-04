@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 2rem;
 }
 
 .cafe__about-content {
@@ -46,11 +48,13 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1180px) {
   .cafe__about {
-    padding: 4rem;
+    padding: 4rem 2rem;
   }
+}
 
+@media screen and (max-width: 1050px) {
   .cafe__about-content h1 {
     font-size: 54px;
     line-height: 60px;
@@ -63,23 +67,55 @@
   }
 
   .cafe__about-image {
-    margin: 2rem;
+    margin: 3rem 8rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .cafe__about {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cafe__about-image {
+    margin: 3rem 5rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cafe__about-image {
+    margin: 3rem;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .cafe__about {
+    padding: 4rem 1rem;
+  }
+
+  .cafe__about-image {
+    margin: 3rem 1rem;
+  }
+
   .cafe__about-content {
     margin: 0;
   }
 
   .cafe__about-content h1 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 38px;
+    line-height: 46px;
     margin-bottom: 1rem;
   }
 
   .cafe__about-content p {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cafe__about {
+    margin-top: 0;
   }
 }

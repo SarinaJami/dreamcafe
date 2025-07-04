@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 950px) {
   .cafe__menu {
-    padding: 2rem;
+    padding: 1rem;
     margin-left: 2rem;
     margin-right: 2rem;
   }
@@ -77,9 +77,15 @@
 }
 
 @media screen and (max-width: 480px) {
+  .cafe__menu {
+    padding: 2rem 1rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .cafe__menu-content_heading h1 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 30px;
+    line-height: 38px;
     margin-bottom: 2rem;
   }
 }

@@ -81,6 +81,10 @@
   .cafe__cta-input {
     width: 500px;
   }
+
+  .cafe__cta-input input {
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -108,17 +112,17 @@
 
 @media screen and (max-width: 480px) {
   .cafe__cta-title p:first-child {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 22px;
+    line-height: 28px;
 
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 
   .cafe__cta-title p:last-child {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 22px;
 
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 
   .cafe__cta-input {

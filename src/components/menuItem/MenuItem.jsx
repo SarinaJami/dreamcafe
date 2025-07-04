@@ -9,8 +9,8 @@ function MenuItem({ title, ingredients, price }) {
         <p>{ingredients.join(' | ')}</p>
       </div>
       <div className="cafe__menuitem-price">
-        <div></div>
-        <p>${price.toFixed(1)}</p>
+        {/* <div></div> */}
+        <p>${price}</p>
       </div>
     </div>
   )

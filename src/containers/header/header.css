@@ -60,6 +60,7 @@
 @media screen and (max-width: 750px) {
   .cafe__header {
     flex-direction: column;
+    padding-top: 10rem;
   }
 
   .cafe__header-content {
@@ -71,7 +72,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .cafe__header-content h1 {
     font-size: 54px;
     line-height: 60px;
@@ -80,20 +81,36 @@
   .cafe__header-content {
     margin-bottom: 2rem;
   }
+
+  .cafe__header-image img {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cafe__header-image img {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .cafe__header {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .cafe__header-content h1 {
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 40px;
+    line-height: 48px;
   }
 
   .cafe__header-image img {
-    width: 70%;
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cafe__header-image img {
+    width: 80%;
   }
 }
