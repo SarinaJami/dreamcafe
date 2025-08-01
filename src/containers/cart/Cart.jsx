@@ -44,9 +44,11 @@ function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, na
                   name={item.name}
                   price={item.price}
                   finalOrder={count}
+                  setFinalOrder={setFinalOrder}
                   onAdd={() => handleAdd(Number(id))}
                   onRemove={() => handleRemove(Number(id))}
                 />
+                <div className="cafe__cart-item_separation-line"></div>
               </div>
             );
           })}

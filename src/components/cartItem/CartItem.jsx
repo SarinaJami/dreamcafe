@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './cartItem.css'
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5"
+import { TiTrash } from "react-icons/ti";
 
 function useOrderLogic({ onAdd, onRemove }) {
   const [addCircleSize, setAddCircleSize] = useState('20');
@@ -22,18 +23,32 @@ function useOrderLogic({ onAdd, onRemove }) {
   return { addCircleSize, removeCircleSize, handleOrderLogic };
 }
 
-function CartItem({ name, price, finalOrder, onAdd, onRemove }) {
+function CartItem({ id, name, price, finalOrder, setFinalOrder, onAdd, onRemove }) {
   const {
     addCircleSize,
     removeCircleSize,
     handleOrderLogic
   } = useOrderLogic({ onAdd, onRemove });
 
+  const removeOrder = (id) => {
+    setFinalOrder((prev) => ({
+      ...prev,
+      [id]: 0
+    }))
+  }
+
   return (
     <div className="cafe__cartItem">
-      <div className="cafe__cartItem_col1">
-        <p>{name}</p>
-        <div className="cafe__cartItem-count">
+      <div className="cafe__cartItem_content">
+        <div className="cafe__cartItem_content-title">
+          <p>{name}</p>
+        </div>
+        <div className="cafe__cartItem_content-price">
+          <p>${price}</p>
+        </div>
+      </div>
+      <div className="cafe__cartItem_order">
+        <div className="cafe__cartItem_order-count">
           <div>
             <IoRemoveCircleOutline style={{ 'cursor': 'pointer', 'fontSize': `${removeCircleSize}px` }}
               onClick={() => handleOrderLogic('subtract')} />
@@ -43,6 +58,10 @@ function CartItem({ name, price, finalOrder, onAdd, onRemove }) {
             <IoAddCircleOutline style={{ 'cursor': 'pointer', 'fontSize': `${addCircleSize}px` }}
               onClick={() => handleOrderLogic('add')} />
           </div>
+        </div>
+        <div className="cafe__cartItem_order-delete">
+          <TiTrash color="#653C0C" fontSize={25} cursor={'pointer'}
+          onClick={() => removeOrder(id)}></TiTrash>
         </div>
       </div>
     </div>

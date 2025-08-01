@@ -2,14 +2,13 @@
   position: fixed;
 
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   align-items: center;
 
   top: 50%;
   left: 50%;
 
-  width: 60%;
+  width: 40%;
   max-width: 800px;
   height: 70vh;
   z-index: 900;
@@ -17,4 +16,32 @@
   background: rgba(251, 226, 196, 1);
   border-radius: 20px;
   border: solid 1px rgba(251, 226, 196, 1);
+}
+
+.cafe__cart-scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cafe__cart-items {
+  width: 100%;
+}
+
+.cafe__cart-item_separation-line {
+  border: solid 1px black; 
+  border-radius: 5px;
+
+  margin: 0.5rem 0;
 }

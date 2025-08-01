@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './App.css'
 import { ScrollNavbar } from './components'
 import { Header, About, Menu, Gallery, Contact, OrderList, Cart } from './containers'
@@ -41,7 +41,10 @@ function App() {
           orderCount={orderCount}
           setOrderCount={setOrderCount}
           setFinalOrder={setFinalOrder}
-          onClose={() => setIsOrderListVisible(false)}
+          onClose={() => {
+            setIsOrderListVisible(false)
+            setOrderCount(finalOrder)
+          }}
           navbarRef={navbarRef}
           setIsCartVisible={setIsCartVisible}
           setIsOrderListVisible={setIsOrderListVisible}
@@ -53,7 +56,7 @@ function App() {
           finalOrder={finalOrder}
           setFinalOrder={setFinalOrder}
           setOrderCount={setOrderCount}
-          onClose={() => setIsCartVisible(false)}
+          onClose={() => setIsCartVisible(false) }
           navbarRef={navbarRef}
           setIsCartVisible={setIsCartVisible}
           setIsOrderListVisible={setIsOrderListVisible}
