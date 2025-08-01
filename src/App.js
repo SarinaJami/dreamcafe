@@ -17,23 +17,46 @@ const menuItems = itemName.map((name, index) => ({
 
 function App() {
   const [isOrderListVisible, setIsOrderListVisible] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const [orderCount, setOrderCount] = useState({});
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [finalOrder, setFinalOrder] = useState({})
+  // const [toggleMenu, setToggleMenu] = useState(false);
   const navbarRef = useRef(null);
 
   return (
     <div className='App'>
-      <ScrollNavbar navbarRef={navbarRef} onOrderClick={() => {
-        setIsOrderListVisible(true)
-      }} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}
+      <ScrollNavbar navbarRef={navbarRef} finalOrder={finalOrder} 
+        onOrderClick={() => {
+          setIsOrderListVisible(true)
+          setIsCartVisible(false)
+        }}
+        onCartClick={() => {
+          setIsCartVisible(true)
+          setIsOrderListVisible(false)
+        }}
       />
       {isOrderListVisible && (
         <OrderList
           menuItems={menuItems}
           orderCount={orderCount}
           setOrderCount={setOrderCount}
+          setFinalOrder={setFinalOrder}
           onClose={() => setIsOrderListVisible(false)}
           navbarRef={navbarRef}
+          setIsCartVisible={setIsCartVisible}
+          setIsOrderListVisible={setIsOrderListVisible}
+        />
+      )}
+      {isCartVisible && (
+        <Cart
+          menuItems={menuItems}
+          finalOrder={finalOrder}
+          setFinalOrder={setFinalOrder}
+          setOrderCount={setOrderCount}
+          onClose={() => setIsCartVisible(false)}
+          navbarRef={navbarRef}
+          setIsCartVisible={setIsCartVisible}
+          setIsOrderListVisible={setIsOrderListVisible}
         />
       )}
       <div className='gradient-bg header-section'>
@@ -45,10 +68,6 @@ function App() {
       <div className='gradient-bg-reverse'>
         <Contact />
       </div>
-      {/* <Cart
-        orderCount={orderCount}
-        setOrderCount={setOrderCount}
-      /> */}
     </div>
   );
 }

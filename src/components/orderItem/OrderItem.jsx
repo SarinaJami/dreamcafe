@@ -23,11 +23,7 @@ function useOrderLogic({ onAdd, onRemove }) {
 }
 
 function OrderItem({ itemImg, title, price, orderCount, onAdd, onRemove }) {
-  const ioCircleStyle = {
-    'cursor': 'pointer',
-    'transition': 'font-size 0.1s ease'
-  }
-
+  
   const {
     addCircleSize,
     removeCircleSize,
@@ -48,12 +44,12 @@ function OrderItem({ itemImg, title, price, orderCount, onAdd, onRemove }) {
       </div>
       <div className="cafe__orderItem-count">
         <div>
-          <IoRemoveCircleOutline style={{ ioCircleStyle, 'fontSize': `${removeCircleSize}px` }}
+          <IoRemoveCircleOutline style={{ 'cursor': 'pointer', 'fontSize': `${removeCircleSize}px` }}
             onClick={() => handleOrderLogic('subtract')} />
         </div>
         <p>{orderCount}</p>
         <div>
-          <IoAddCircleOutline style={{ ioCircleStyle, 'fontSize': `${addCircleSize}px` }}
+          <IoAddCircleOutline style={{ 'cursor': 'pointer', 'fontSize': `${addCircleSize}px` }}
             onClick={() => handleOrderLogic('add')} />
         </div>
       </div>

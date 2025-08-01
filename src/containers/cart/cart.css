@@ -2,6 +2,7 @@
   position: fixed;
 
   display: flex;
+  /* flex-direction: row; */
   justify-content: center;
   align-items: center;
 
@@ -10,55 +11,10 @@
 
   width: 60%;
   max-width: 800px;
-  z-index: 800;
+  height: 70vh;
+  z-index: 900;
 
-  background: rgba(251, 226, 196, 0.9);
+  background: rgba(251, 226, 196, 1);
   border-radius: 20px;
   border: solid 1px rgba(251, 226, 196, 1);
-
-  padding: 2rem;
-}
-
-.cafe__cart-orders {}
-
-.cafe__cart-buttons {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cafe__cart-buttons div {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin: 0;
-}
-
-.cafe__cart-buttons button {
-  background: var(--color-btn);
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 25px;
-  outline: none;
-  white-space: nowrap;
-  width: 150px;
-
-  border: none;
-  border-radius: 50px;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-}
-
-.cafe__cart-buttons button:hover {
-  box-shadow: 0 0 5px var(--color-btn);
-}
-
-.cafe__cart-buttons button:active {
-  transform: scale(0.94)
 }

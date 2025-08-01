@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { OrderItem, OrderNotif } from '../../components';
 import './orderList.css';
-// import { item01, item02, item03, item04, item05, item06 } from '../../assets/images';
-// const itemImages = [item01, item02, item03, item04, item05, item06];
-// const itemName = ['Latte', 'Americano', 'Mocha', 'Cappuccino', 'Caramel Macchiato', 'Irish Coffee'];
-// const prices = [6.8, 5, 6.8, 6.5, 5.6, 7.5];
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 function useOutsideMouseClick(refs, onOutsideClick) {
   useEffect(() => {
@@ -23,15 +20,9 @@ function useOutsideMouseClick(refs, onOutsideClick) {
   }, [refs, onOutsideClick]);
 }
 
-function OrderList({ menuItems, orderCount, setOrderCount, onClose, navbarRef }) {
+function OrderList({ menuItems, orderCount, setOrderCount, setFinalOrder, onClose, navbarRef, setIsCartVisible, setIsOrderListVisible }) {
   const orderListRef = useRef(null)
   const notifRef = useRef(null)
-  // const menuItems = itemName.map((name, index) => ({
-  //   id: index,
-  //   name: name,
-  //   image: itemImages[index],
-  //   price: prices[index],
-  // }))
   const [showNotif, setShowNotif] = useState(false)
   const [noItemNotif, setNoItemNotif] = useState(false);
   useOutsideMouseClick([orderListRef, navbarRef], () => {
@@ -61,6 +52,9 @@ function OrderList({ menuItems, orderCount, setOrderCount, onClose, navbarRef })
   return (
     <div className="cafe__orderList pop-up">
       <div className="cafe__orderList-scrollable" ref={orderListRef}>
+        <div className="cafe__orderList-close">
+          <AiOutlineCloseCircle color='#653C0C' size={25} cursor={'pointer'} onClick={() => onClose()}></AiOutlineCloseCircle>
+        </div>
         <div className="cafe__orderList-items">
           <h2>order online</h2>
           {menuItems.map((item) => (
@@ -84,6 +78,7 @@ function OrderList({ menuItems, orderCount, setOrderCount, onClose, navbarRef })
           <div className="cafe__orderList-finalized_bill">
             <button onClick={() => {
               if (Object.values(orderCount).some(count => count > 0)) {
+                setFinalOrder(orderCount)
                 setShowNotif(true)
               }
               else {
@@ -101,7 +96,10 @@ function OrderList({ menuItems, orderCount, setOrderCount, onClose, navbarRef })
           <OrderNotif
             message="Done!"
             buttonMessage="Go to Cart"
-            buttonOnClick={() => { console.log('button clicked!') }}
+            buttonOnClick={() => { 
+              setIsCartVisible(true) 
+              setIsOrderListVisible(false)
+            }}
             notifRef={notifRef}
           />
         </div>

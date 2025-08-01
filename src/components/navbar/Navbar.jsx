@@ -9,11 +9,11 @@ const NavbarLinks = () => (
   <nav>
     <div>
       <ul>
-        <li className='home'><a href='#home'>Home</a></li>
-        <li className='about'><a href='#about'>About</a></li>
-        <li className='menu'><a href='#menu'>Menu</a></li>
-        <li className='gallery'><a href='#gallery'>Gallery</a></li>
-        <li className='contact'><a href='#contact'>Contact</a></li>
+        <li className='home' data-label="Home"><a href='#home'>Home</a></li>
+        <li className='about' data-label="About"><a href='#about'>About</a></li>
+        <li className='menu' data-label="Menu"><a href='#menu'>Menu</a></li>
+        <li className='gallery' data-label="Gallery"><a href='#gallery'>Gallery</a></li>
+        <li className='contact' data-label="Contact"><a href='#contact'>Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -33,9 +33,8 @@ function useOutsideMouseClick(ref, onOutsideClick) {
   }, [ref, onOutsideClick]);
 }
 
-const ScrollNavbar = ({ navbarRef, onOrderClick }) => {
+const ScrollNavbar = ({ navbarRef, finalOrder, onOrderClick, onCartClick }) => {
   const isMobile = useIsMobile(1088);
-  const [orderCount, setOrderCount] = useState(0);
   const [cartMargin, setCartMargin] = useState(0.5);
   const [shoppingBorderColor, setShoppingBorderColor] = useState('#653C0C');
   const wrapperRef = useRef(null);
@@ -46,6 +45,7 @@ const ScrollNavbar = ({ navbarRef, onOrderClick }) => {
   const [currentSection, setCurrentSection] = useState('');
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
 
+  const totalOrder = Object.values(finalOrder).reduce((sum, value) => sum + value, 0) 
 
   const cartStyle = {
     'marginLeft': `${cartMargin}rem`,
@@ -164,11 +164,12 @@ const ScrollNavbar = ({ navbarRef, onOrderClick }) => {
             onMouseLeave={() => setCartMargin(0.5)}
             onClick={() => {
               setShoppingBorderColor('#653b0ca1');
+              onCartClick()
               setTimeout(() => setShoppingBorderColor('#653C0C'), 500);
             }}
           >
             <CiShoppingCart style={{ color: 'var(--color-btn)', fontSize: '34', strokeWidth: '1' }} />
-            <p style={cartStyle}>{orderCount}</p>
+            <p style={cartStyle}>{totalOrder}</p>
           </div>
           <button type='button' onClick={onOrderClick}><span className="gradient-text">Order Online</span></button>
         </div>

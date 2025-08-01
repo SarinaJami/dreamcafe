@@ -65,8 +65,6 @@
 }
 
 .cafe__navbar-links_container ul li,
-/* .cafe__navbar-sign p, */
-/* .cafe__navbar-navbarlinks_container-sign p, */
 .cafe__navbar-navbarlinks_container ul li {
   color: #000;
   font-family: var(--font-family);
@@ -75,15 +73,12 @@
   line-height: 25px;
   text-transform: capitalize;
   list-style: none;
-  /* color: var(--color-bg); */
 
   margin: 0 1rem;
   cursor: pointer;
 }
 
 .cafe__navbar-links_container ul li:hover,
-/* .cafe__navbar-sign p:hover, */
-/* .cafe__navbar-navbarlinks_container-sign p:hover, */
 .cafe__navbar-navbarlinks_container ul li:hover {
   font-weight: 600;
 }

@@ -18,6 +18,16 @@
   border: solid 1px rgba(251, 226, 196, 1);
 }
 
+.cafe__orderList-close {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0.5rem;
+}
+
 .cafe__orderList-scrollable {
   overflow-x: hidden;
   overflow-y: auto;
@@ -27,7 +37,6 @@
 
   width: 100%;
   height: 100%;
-  padding: 2rem 4rem;
 
   display: flex;
   flex-direction: column;
@@ -41,6 +50,7 @@
 
 .cafe__orderList-items {
   width: 100%;
+  padding: 0 4rem;
 }
 
 .cafe__orderList-items h2 {
@@ -70,6 +80,7 @@
   align-items: center;
 
   margin-top: 2rem;
+  padding: 0 4rem 2rem 4rem;
 }
 
 .cafe__orderList-finalized_total {
@@ -177,8 +188,8 @@
 }
 
 @media screen and (max-width: 850px) {
-  .cafe__orderList-scrollable {
-    padding: 2rem 2rem;
+  .cafe__orderList-items {
+    padding: 0 2rem;
   }
 
   .cafe__orderList-finalized_total {
@@ -189,7 +200,7 @@
 
 @media screen and (max-width: 650px) {
   .cafe__orderList {
-    width: 80%;
+    width: 85%;
   }
 }
 

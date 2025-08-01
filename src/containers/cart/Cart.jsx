@@ -1,42 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './cart.css'
+import { CartItem } from '../../components'
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 
-function Cart({ menuItems, orderCount, setOrderCount }) {
-  const [paymentMessage, setPaymentMessage] = useState('Payment');
-  const handlePayment = (setOrderCount) => {
-    setOrderCount((prev) =>
-      Object.keys(prev).reduce((acc, key) => {
-        acc[key] = 0;
-        return acc;
-      }, {})
-    );
-    setPaymentMessage('Paid!');
-    setTimeout(() => {
-      setPaymentMessage('Payment')
-    }, 3000);
+function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, navbarRef, setIsCartVisible, setIsOrderListVisible }) {
+  const cartRef = useRef(null)
+
+  const orderedList = Object.entries(finalOrder).filter(([key, value]) => value > 0)
+
+  const handleAdd = (id) => {
+    setFinalOrder((prev) => ({
+      ...prev,
+      [id]: Math.min((prev[id] || 0) + 1, 20)
+    }))
   }
-  const ordersIds = Object.entries(orderCount).filter(([_, value]) => {
-    return value > 0
-  }).map(([id]) => id);
 
+  const handleRemove = (id) => {
+    setFinalOrder((prev) => ({
+      ...prev,
+      [id]: Math.max((prev[id] || 0) - 1, 0)
+    }))
+  }
+
+  useEffect(() => {
+    setOrderCount(finalOrder)
+  }, [finalOrder])
+  
   return (
     <div className="cafe__cart pop-up">
-      <div className="cafe__cart-orders">
-        {
-          menuItems.map((item) => (
-            <div className="cafe__cart-order">
-              <p>{ordersIds.includes(item.id) ? item.name : ""}</p>
-            </div>
-          ))
-        }
-      </div>
-      <div className="cafe__cart-buttons">
-        <div>
-          <button onClick={() => handlePayment(setOrderCount)}><span className="payment-message gradient-text">{paymentMessage}</span></button>
+      <div className="cafe__cart-scrollable" ref={cartRef}>
+        <div className="cafe__cart-close">
+          <AiOutlineCloseCircle color='#653C0C' size={25} cursor={'pointer'} onClick={() => onClose()}></AiOutlineCloseCircle>
         </div>
-        <div>
-          <button><span className="gradient-text">Edit Order</span></button>
+        <div className="cafe__cart-items">
+          <h2>Your Cart</h2>
+          {orderedList.map(([id, count]) => {
+            const item = menuItems[Number(id)]
+            return (
+              <div className="cafe__cart-item" key={id}>
+                <CartItem
+                  id={Number(id)}
+                  name={item.name}
+                  price={item.price}
+                  finalOrder={count}
+                  onAdd={() => handleAdd(Number(id))}
+                  onRemove={() => handleRemove(Number(id))}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
