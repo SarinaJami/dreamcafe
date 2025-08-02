@@ -2,8 +2,11 @@
   position: fixed;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding-bottom: 2rem;
 
   top: 50%;
   left: 50%;
@@ -27,7 +30,6 @@
 
   width: 100%;
   height: 100%;
-  padding: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -35,8 +37,33 @@
   align-items: center;
 }
 
+.cafe__cart-close {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0.5rem;
+}
+
 .cafe__cart-items {
   width: 100%;
+  padding: 0 2rem;
+}
+
+.cafe__cart-items h2 {
+  font-family: var(--font-family);
+  text-align: center;
+  text-transform: capitalize;
+
+  margin-bottom: 1rem;
+}
+
+.cafe__cart-empty {
+  font-family: var(--font-family);
+  font-size: 18px;
+  color: rgb(76, 73, 73);
 }
 
 .cafe__cart-item_separation-line {
@@ -44,4 +71,106 @@
   border-radius: 5px;
 
   margin: 0.5rem 0;
+}
+
+.cafe__cart-buttons {
+  width: 100%;
+  padding: 1rem 3rem 0 3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__cart-buttons div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cafe__cart-buttons button {
+  background: var(--color-btn);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  outline: none;
+
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.cafe__cart-button-hover:hover {
+  box-shadow: 0 0 5px var(--color-btn);
+}
+
+.cafe__cart-button-active:active {
+  transform: scale(0.94)
+}
+
+.inactive-bg {
+  background: rgb(141, 138, 138) !important;
+}
+
+.inactive-text {
+  color: rgb(255, 247, 247) !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .cafe__cart {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .cafe__cart-items {
+    padding: 0 1.5rem;
+  }
+
+  .cafe__cart-buttons {
+    padding: 1rem 2rem 0 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cafe__cart-buttons button {
+    font-size: 16px;
+    line-height: 22px;
+
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .cafe__cart {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cafe__cart {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cafe__cart-items h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .cafe__cart-buttons {
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cafe__cart {
+    width: 85%;
+  }
 }

@@ -62,3 +62,16 @@
   margin: 0 0.5rem;
 }
 
+@media screen and (max-width: 500px) {
+  .cafe__cartItem_content p,
+  .cafe__cartItem_order-count p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cafe__cartItem {
+    padding: 0.5rem 0.5rem;
+  }
+}

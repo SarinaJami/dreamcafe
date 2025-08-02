@@ -101,6 +101,7 @@ function OrderList({ menuItems, orderCount, setOrderCount, setFinalOrder, onClos
               setIsOrderListVisible(false)
             }}
             notifRef={notifRef}
+            onNotifClose={() => setShowNotif(false)}
           />
         </div>
       )}

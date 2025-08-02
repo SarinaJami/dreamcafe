@@ -33,7 +33,7 @@ function useOutsideMouseClick(ref, onOutsideClick) {
   }, [ref, onOutsideClick]);
 }
 
-const ScrollNavbar = ({ navbarRef, finalOrder, onOrderClick, onCartClick }) => {
+const ScrollNavbar = ({ navbarRef, totalOrder, onOrderClick, onCartClick }) => {
   const isMobile = useIsMobile(1088);
   const [cartMargin, setCartMargin] = useState(0.5);
   const [shoppingBorderColor, setShoppingBorderColor] = useState('#653C0C');
@@ -45,7 +45,6 @@ const ScrollNavbar = ({ navbarRef, finalOrder, onOrderClick, onCartClick }) => {
   const [currentSection, setCurrentSection] = useState('');
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
 
-  const totalOrder = Object.values(finalOrder).reduce((sum, value) => sum + value, 0) 
 
   const cartStyle = {
     'marginLeft': `${cartMargin}rem`,
@@ -187,6 +186,16 @@ const ScrollNavbar = ({ navbarRef, finalOrder, onOrderClick, onCartClick }) => {
                     setToggleMenu(false);
                     onOrderClick()
                   }}><span className="gradient-text-dark">Order Online</span></button>
+                </div>
+                <div className="cafe__navbarlinks_cart">
+                  <div className="cafe__navbar-navbarlinks_shoppingcart" style={{'borderColor': 'var(--color-bg)'}}
+                    onClick={() => {
+                      setToggleMenu(false);
+                      onCartClick()
+                    }}>
+                    <CiShoppingCart style={{ color: 'var(--color-bg)', fontSize: '34', strokeWidth: '1' }} />
+                    <p>{totalOrder}</p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -19,13 +19,13 @@ function App() {
   const [isOrderListVisible, setIsOrderListVisible] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [orderCount, setOrderCount] = useState({});
-  const [finalOrder, setFinalOrder] = useState({})
-  // const [toggleMenu, setToggleMenu] = useState(false);
+  const [finalOrder, setFinalOrder] = useState({});
   const navbarRef = useRef(null);
+  const totalOrder = Object.values(finalOrder).reduce((sum, value) => sum + value, 0) 
 
   return (
     <div className='App'>
-      <ScrollNavbar navbarRef={navbarRef} finalOrder={finalOrder} 
+      <ScrollNavbar navbarRef={navbarRef} totalOrder={totalOrder} 
         onOrderClick={() => {
           setIsOrderListVisible(true)
           setIsCartVisible(false)
