@@ -23,7 +23,7 @@ function useOutsideMouseClick(refs, onOutsideClick) {
 
 function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, navbarRef, setIsCartVisible, setIsOrderListVisible }) {
   const cartRef = useRef(null)
-  const [payMessage, setPayMessage] = useState("Payment")
+  const [payMessage, setPayMessage] = useState("Pay")
 
   useOutsideMouseClick([cartRef, navbarRef], () => onClose())
   const orderedList = Object.entries(finalOrder).filter(([key, value]) => value > 0)
@@ -84,7 +84,7 @@ function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, na
             if (Object.values(finalOrder).some(count => count > 0)) {
               setPayMessage("Paid!")
               setTimeout(() => {
-                setPayMessage("Payment")
+                setPayMessage("Pay")
                 setFinalOrder(prevOrder => {
                   const reset = Object.fromEntries(
                     Object.entries(prevOrder).map(([key, _]) => [key, 0])

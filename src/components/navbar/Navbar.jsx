@@ -186,15 +186,15 @@ const ScrollNavbar = ({ navbarRef, totalOrder, onOrderClick, onCartClick }) => {
                     setToggleMenu(false);
                     onOrderClick()
                   }}><span className="gradient-text-dark">Order Online</span></button>
-                </div>
-                <div className="cafe__navbarlinks_cart">
-                  <div className="cafe__navbar-navbarlinks_shoppingcart" style={{'borderColor': 'var(--color-bg)'}}
-                    onClick={() => {
-                      setToggleMenu(false);
-                      onCartClick()
-                    }}>
-                    <CiShoppingCart style={{ color: 'var(--color-bg)', fontSize: '34', strokeWidth: '1' }} />
-                    <p>{totalOrder}</p>
+                  <div className="cafe__navbarlinks_cart">
+                    <div className="cafe__navbar-navbarlinks_shoppingcart" style={{'borderColor': 'var(--color-bg)'}}
+                      onClick={() => {
+                        setToggleMenu(false);
+                        onCartClick()
+                      }}>
+                      <CiShoppingCart style={{ color: 'var(--color-bg)', fontSize: '34', strokeWidth: '1' }} />
+                      <p>{totalOrder}</p>
+                    </div>
                   </div>
                 </div>
               </div>

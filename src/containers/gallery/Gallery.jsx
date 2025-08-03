@@ -106,7 +106,7 @@ function Gallery() {
       <div className="cafe__gallery-content">
         <h1>Photo Gallery</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum molestie rhoncus. Morbi elementum, lectus vel egestas convallis.</p>
-        <button type='button'><span className="gradient-text">View More</span></button>
+        {/* <button type='button'><span className="gradient-text">View More</span></button> */}
       </div>
       <div className="cafe__gallery-images">
         <div className="cafe__gallery-images_container" ref={scrollRef}>

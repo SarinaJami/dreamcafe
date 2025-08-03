@@ -137,14 +137,14 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .cafe__cart-buttons button {
     font-size: 16px;
     line-height: 22px;
 
     padding: 0.8rem 1.2rem;
   }
-}
+} */
 
 @media screen and (max-width: 750px) {
   .cafe__cart {
