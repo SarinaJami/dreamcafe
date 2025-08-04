@@ -5,6 +5,8 @@
   align-items: center;
 
   margin-bottom: 2rem;
+
+  min-height: 100svh;
 }
 
 .cafe__about-content {

@@ -208,3 +208,9 @@ a {
     margin: 4rem 2rem;
   }
 }
+
+@media (orientation: landscape) {
+  .header-section {
+    height: fit-content;
+  }
+}

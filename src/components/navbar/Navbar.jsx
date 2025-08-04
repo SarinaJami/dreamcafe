@@ -61,7 +61,7 @@ const ScrollNavbar = ({ navbarRef, totalOrder, onOrderClick, onCartClick }) => {
     if (navbarRef.current) {
       setNavbarHeight(navbarRef.current.clientHeight);
     }
-  }, [])
+  }, [navbarRef])
 
   useEffect(() => {
     const handleNavbarPosition = () => {

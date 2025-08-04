@@ -231,8 +231,14 @@
   right: 0;
   margin-top: 1rem;
   min-width: 210px;
+  max-height: 100svh;
   border-radius: 20px;
   box-shadow: 0 0 5px 5px rgba(236, 207, 160, 0.2);
+}
+
+.cafe__navbar-navbarlinks_container-links {
+  max-height: inherit;
+  overflow-y: scroll;
 }
 
 .cafe__navbar-navbarlinks_container ul li,

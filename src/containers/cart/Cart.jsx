@@ -52,7 +52,7 @@ function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, na
 
   useEffect(() => {
     setOrderCount(finalOrder)
-  }, [finalOrder])
+  }, [finalOrder, setOrderCount])
   
   return (
     <div className="cafe__cart pop-up" ref={cartRef}>
