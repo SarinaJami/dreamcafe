@@ -24,10 +24,17 @@ function useOutsideMouseClick(refs, onOutsideClick) {
 function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, navbarRef, setIsCartVisible, setIsOrderListVisible }) {
   const cartRef = useRef(null)
   const [payMessage, setPayMessage] = useState("Pay")
-
+  
   useOutsideMouseClick([cartRef, navbarRef], () => onClose())
   const orderedList = Object.entries(finalOrder).filter(([key, value]) => value > 0)
   const isEmpty = Object.keys(orderedList).length === 0;
+  
+  const numberOfOrders = menuItems.reduce((count, item) => {
+    return count + (finalOrder[item.id] || 0)
+  }, 0)
+  const totalCost = menuItems.reduce((sum, item) => {
+    return sum + (finalOrder[item.id] || 0) * item.price
+  }, 0)
 
   const handleAdd = (id) => {
     setFinalOrder((prev) => ({
@@ -76,6 +83,11 @@ function Cart({ menuItems, finalOrder, setFinalOrder, setOrderCount, onClose, na
             );
           })}
         </div>
+        {<div className={`${isEmpty ? "cafe__cart-total-hidden" : "cafe__cart-total"}`}>
+            <p>{`Total (${numberOfOrders} Item)`}</p>
+            <p>${totalCost.toFixed(2)}</p>
+          </div>
+        }
       </div>
       <div className="cafe__cart-buttons">
         <div>
