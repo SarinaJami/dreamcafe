@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dreamcafe/static/css/main.14236507.css",
-    "main.js": "/dreamcafe/static/js/main.108d441c.js",
+    "main.css": "/dreamcafe/static/css/main.d4d31376.css",
+    "main.js": "/dreamcafe/static/js/main.a6eca109.js",
     "static/js/453.301385c6.chunk.js": "/dreamcafe/static/js/453.301385c6.chunk.js",
     "static/media/gallery02.png": "/dreamcafe/static/media/gallery02.9a11e6107bec7e0e0f18.png",
     "static/media/gallery04.png": "/dreamcafe/static/media/gallery04.737a82403ffdb8d8a5eb.png",
@@ -18,12 +18,12 @@
     "static/media/americano.png": "/dreamcafe/static/media/americano.4d26ab3005db96a632b2.png",
     "static/media/latte.png": "/dreamcafe/static/media/latte.e33a7821413e537d387e.png",
     "index.html": "/dreamcafe/index.html",
-    "main.14236507.css.map": "/dreamcafe/static/css/main.14236507.css.map",
-    "main.108d441c.js.map": "/dreamcafe/static/js/main.108d441c.js.map",
+    "main.d4d31376.css.map": "/dreamcafe/static/css/main.d4d31376.css.map",
+    "main.a6eca109.js.map": "/dreamcafe/static/js/main.a6eca109.js.map",
     "453.301385c6.chunk.js.map": "/dreamcafe/static/js/453.301385c6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.14236507.css",
-    "static/js/main.108d441c.js"
+    "static/css/main.d4d31376.css",
+    "static/js/main.a6eca109.js"
   ]
 }
